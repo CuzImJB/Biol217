@@ -41,6 +41,7 @@ Once the samples are evaluated, processed and filtered, the genomes are assemble
 <br> ``` megahit_toolkit contig2fastg 99 final.contigs.fa > final.contigs.fastg```
 <br> The result is loaded in Bandage and looked at.
 
-! [image](./Images/Assembly_Day2.png)
+! [image](Images/Assemlby_Day2.png)
+
 
 
