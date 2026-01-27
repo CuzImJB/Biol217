@@ -10,6 +10,8 @@ cd = changes current directory
 ls = list 
 <br> ls -l = longer list
 
+touch = create a file
+
 mv = moves files
 * mv file.txt dir/ = move to another directory and keep the name
 * mv file.txt file2.txt = renames file
@@ -45,6 +47,7 @@ Smaller Environments or Rooms for different codes
 ## Bash Scripts
 Documentation and easier writing of code --> these are published in papers
 
+Change Name, Name of Output and Error file!
 ## For Loops
 for x in [ITEMS]
 <br> do
