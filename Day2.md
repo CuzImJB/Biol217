@@ -15,7 +15,7 @@ Fastp is used to process and filter the reads. As we have paired-end reads (forw
 <br> ```fastp -i 0_raw_reads/BGR_130305_mapped_R1.fastq.gz -I 0_raw_reads/BGR_130305_mapped_R2.fastq.gz -o fastp/BGR_130305_mapped_R1.fastq.gz -O fastp/BGR_130305_mapped_R2.fastq.gz -t 6 -q 20 -h "fastp_BGR_130305.html" -R fastp/"fastp_BGR_130305"```
 <br>```fastp -i 0_raw_reads/BGR_130527_mapped_R1.fastq.gz -I 0_raw_reads/BGR_130527_mapped_R2.fastq.gz -o fastp/BGR_130527_mapped_R1.fastq.gz -O fastp/BGR_130527_mapped_R2.fastq.gz -t 6 -q 20 -h "fastp_BGR_130527.html" -R fastp/"fastp_BGR_130527"```
 <br>```fastp -i 0_raw_reads/BGR_130708_mapped_R1.fastq.gz -I 0_raw_reads/BGR_130708_mapped_R2.fastq.gz -o fastp/BGR_130708_mapped_R1.fastq.gz -O fastp/BGR_130708_mapped_R2.fastq.gz -t 6 -q 20 -h "fastp_BGR_130708.html" -R fastp/"fastp_BGR_130708"```
-<br> this step must be done for each pair of reads (* does not work)
+<br> this step must be done for each pair of reads (*_R1_fastq.gz would not work)
 * ```-i 0_raw_reads/BGR_130305_mapped_R1.fastq.gz``` --> Input of the forward read
 * ```-I 0_raw_reads/BGR_130305_mapped_R2.fastq.gz``` --> Input of the reverse read
 * ```-o fastp/BGR_130305_mapped_R1.fastq.gz``` --> Output of the processed forward read
