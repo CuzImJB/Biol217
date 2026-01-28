@@ -32,7 +32,7 @@ Once the samples are evaluated, processed and filtered, the genomes are assemble
 * ```-2 fastp/BGR_130305_mapped_R2.fastq.gz``` --> Input of all reverse reads (multiple)
 * ```-o assembly``` --> output directory
 * ```--min-contig-len 1000``` --> minimum lenght of the assembled genomes
-* ```--presets meta-large``` --> Defines minimum and maximum kmer sizes (no need to know)
+* ```--presets meta-large``` --> Defines minimum and maximum kmer sizes 
 * ```-m 0.85``` -->  max memory in byte to be used in SdBG construction
 * ```-t 12``` --> number of CPU threads
 
