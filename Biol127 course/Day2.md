@@ -43,5 +43,5 @@ Once the samples are evaluated, processed and filtered, the genomes are assemble
 
 [Assembly](Images/Assemlby_Day2.png)
 
-For larger reads in the image, more reads were aquired and the were assembled better. Shorter sequences could either not be assembled or they are short repeats etc. As shown in the image, no complete genome was assembled, but this was expected from the used data, as it is rather diffucult to obtain whole genomes from a metagenome sample.
+Only Contigs are created, the next step would be Metagenomic Binning to create MAGs
 
