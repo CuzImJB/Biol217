@@ -41,7 +41,7 @@ Once the samples are evaluated, processed and filtered, the genomes are assemble
 <br> ``` megahit_toolkit contig2fastg 99 final.contigs.fa > final.contigs.fastg```
 <br> The result is loaded in Bandage and looked at.
 
-[Assembly](Images/Assemlby_Day2.png)
+[Assembly](../Images/Assemlby_Day2.png)
 
 Only Contigs are created, the next step would be Metagenomic Binning to create MAGs
 
