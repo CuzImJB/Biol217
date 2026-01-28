@@ -49,3 +49,11 @@ bowtie2-build /work_beegfs/sunam227/metagenomics/anvi_contigs/contigs.anvio.fa /
 ```
 * ```/work_beegfs/sunam227/metagenomics/anvi_contigs/contigs.anvio.fa``` --> Input of re-formatted contigs
 * ```/work_beegfs/sunam227/metagenomics/anvi_contigs/contigs.anvio.fa.index``` --> Output of the  index file 
+
+### Mapping reads onto contigs
+```bowtie2``` is used for the actual mapping. The output of read mapping is called a Sequence Alignment Map file (.sam).
+```
+bowtie2 -1 fastp/BGR_130305_mapped_R1.fastq.gz -2 fastp/BGR_130305_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130305.sam 
+bowtie2 -1 fastp/BGR_130527_mapped_R1.fastq.gz -2 fastp/BGR_130527_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130527.sam 
+bowtie2 -1 fastp/BGR_130708_mapped_R1.fastq.gz -2 fastp/BGR_130708_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130708.sam 
+```
