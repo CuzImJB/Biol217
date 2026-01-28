@@ -137,3 +137,16 @@ anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -
 * ```--log-file anvi_contigs/BGR_merge/metabat.log``` --> Output of log file
 * ```--just-do-it ``` --> needed for experimental workflow that is still under development and may produced unexpected errors
 * ```-o anvi_contigs/BGR_merge/summary_megabat2``` --> Output directory of the summary
+
+#### ```MaxBin2```
+```
+anvi-cluster-contigs -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -C MAXBIN2 --driver maxbin2 --log-file anvi_contigs/BGR_merge/maxbin2.log --just-do-it
+anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -o anvi_contigs/BGR_merge/summary_maxbin2 -C MAXBIN2
+```
+* ```-p anvi_contigs/BGR_merge/PROFILE.db``` --> Input merged PROFILE.db
+* ```-c anvi_contigs/contigs.db``` --> Input contig database
+* ```-C MAXBIN2 ``` --> Name of output collection
+* ```--driver maxbin2``` --> Binning programm
+* ```--log-file anvi_contigs/BGR_merge/maxbin.log``` --> Output of log file
+* ```--just-do-it ``` --> needed for experimental workflow that is still under development and may produced unexpected errors
+* ```-o anvi_contigs/BGR_merge/summary_maxbin2``` --> Output directory of the summary
