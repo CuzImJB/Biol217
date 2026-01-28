@@ -121,5 +121,5 @@ anvi-merge anvi_contigs/BGR_130305_profile/PROFILE.db anvi_contigs/BGR_130527_pr
 * ```anvi_contigs/BGR_130305_profile/PROFILE.db anvi_contigs/BGR_130527_profile/PROFILE.db anvi_contigs/BGR_130708_profile/PROFILE.db``` --> Profiles that will be merged
 * ```-o anvi_contigs/BGR_merge``` --> Output directory
 * ```-c anvi_contigs/contigs.db``` --> Contig database file
-* ```
+* ```--enforce-hierarchical-clustering``` --> Construct a phylogenetic tree that shows the relationships between the contigs
 
