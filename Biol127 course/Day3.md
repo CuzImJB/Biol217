@@ -114,9 +114,9 @@ anvi-profile -i anvi_contigs/BGR_130708_sorted.bam -c anvi_contigs/contigs.db --
 ### Merging ```anvi'o``` profiles from all samples
 To analyze and compare all samples together, we merge the profiles coming from the different samples into one profile.
 ```
-anvi-merge anvi_contigs/BGR_130305_profile anvi_contigs/BGR_130527_profile anvi_contigs/BGR_130708_profile -o anvi_contigs/BGR_merge -c anvi_contigs/contigs.db --enforce-hierarchical-clustering
+anvi-merge anvi_contigs/BGR_130305_profile/PROFILE.db anvi_contigs/BGR_130527_profile/PROFILE.db anvi_contigs/BGR_130708_profile/PROFILE.db -o anvi_contigs/BGR_merge -c anvi_contigs/contigs.db --enforce-hierarchical-clustering
 ```
-* ```anvi_contigs/BGR_130305_profile anvi_contigs/BGR_130527_profile anvi_contigs/BGR_130708_profile -o anvi_contigs/BGR_merge``` --> Profiles that will be merged
+* ```anvi_contigs/BGR_130305_profile/PROFILE.db anvi_contigs/BGR_130527_profile/PROFILE.db anvi_contigs/BGR_130708_profile/PROFILE.db``` --> Profiles that will be merged
 * ```-o anvi_contigs/BGR_merge``` --> Output directory
 * ```-c anvi_contigs/contigs.db``` --> Contig database file
 * ```
