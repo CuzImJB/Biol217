@@ -111,6 +111,8 @@ anvi-profile -i anvi_contigs/BGR_130708_sorted.bam -c anvi_contigs/contigs.db --
 * ``` -c anvi_contigs/contigs.db``` --> Input of contigs database
 * ``` --output-dir anvi_contigs/BGR_130708_profile``` --> Output directory
 
+[Contig_Database](Images/Contig_database_Day3.png)
+
 ### Merging ```anvi'o``` profiles from all samples
 To analyze and compare all samples together, we merge the profiles coming from the different samples into one profile.
 ```
