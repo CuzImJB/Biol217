@@ -153,6 +153,7 @@ anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -
 
 Questions:
 * How many ARCHAEA bins did you get from ```MetaBat2```?
-    * 
+    * 3 archaeal bins
 * How many ARCHAEA bins did you get from ```MaxBin2```?
-    *
+    * 1 archaeal bin
+    
