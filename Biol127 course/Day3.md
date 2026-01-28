@@ -150,3 +150,9 @@ anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -
 * ```--log-file anvi_contigs/BGR_merge/maxbin.log``` --> Output of log file
 * ```--just-do-it ``` --> needed for experimental workflow that is still under development and may produced unexpected errors
 * ```-o anvi_contigs/BGR_merge/summary_maxbin2``` --> Output directory of the summary
+
+Questions:
+* How many ARCHAEA bins did you get from ```MetaBat2```?
+    * 
+* How many ARCHAEA bins did you get from ```MaxBin2```?
+    *
