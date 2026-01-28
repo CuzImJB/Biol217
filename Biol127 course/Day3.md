@@ -53,7 +53,71 @@ bowtie2-build /work_beegfs/sunam227/metagenomics/anvi_contigs/contigs.anvio.fa /
 ### Mapping reads onto contigs
 ```bowtie2``` is used for the actual mapping. The output of read mapping is called a Sequence Alignment Map file (.sam).
 ```
-bowtie2 -1 fastp/BGR_130305_mapped_R1.fastq.gz -2 fastp/BGR_130305_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130305.sam 
-bowtie2 -1 fastp/BGR_130527_mapped_R1.fastq.gz -2 fastp/BGR_130527_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130527.sam 
-bowtie2 -1 fastp/BGR_130708_mapped_R1.fastq.gz -2 fastp/BGR_130708_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130708.sam 
+bowtie2 -1 fastp/BGR_130305_mapped_R1.fastq.gz -2 fastp/BGR_130305_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130305.sam --very-fast
+bowtie2 -1 fastp/BGR_130527_mapped_R1.fastq.gz -2 fastp/BGR_130527_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130527.sam --very-fast
+bowtie2 -1 fastp/BGR_130708_mapped_R1.fastq.gz -2 fastp/BGR_130708_mapped_R2.fastq.gz -x anvi_contigs/contigs.anvio.fa.index -S BGR_130708.sam --very-fast
 ```
+* ```-1 fastp/BGR_130305_mapped_R1.fastq.gz``` --> Input of forward read
+* ```-2 fastp/BGR_130305_mapped_R2.fastq.gz``` --> Input of reverse read
+* ``` -x anvi_contigs/contigs.anvio.fa.index``` --> Used contig index file
+* ```-S BGR_130305.sam``` --> Output of .sam file
+* ``` --very-fast``` --> Run mode. Faster, but less acurate
+
+To convert the .sam file into a file, which is readable for the computer, we need to convert them into .bam files.
+```
+samtools view -Sb anvi_contigs/BGR_130305.sam > anvi_contigs/BGR_130305.bam
+samtools view -Sb anvi_contigs/BGR_130527.sam > anvi_contigs/BGR_130527.bam
+samtools view -Sb anvi_contigs/BGR_130708.sam > anvi_contigs/BGR_130708.bam
+```
+* ```-Sb anvi_contigs/BGR_130708.sam > anvi_contigs/BGR_130708.bam``` --> Conversion of .sam to .bam
+
+### Sorting mapped reads
+Sorting the mapped reads speeds up data processing and allows downstream analysis such as visualization and variant calling.
+```
+anvi-init-bam anvi_contigs/BGR_130305.bam -o BGR_130305_sorted.bam
+anvi-init-bam anvi_contigs/BGR_130527.bam -o BGR_130527_sorted.bam
+anvi-init-bam anvi_contigs/BGR_130708.bam -o BGR_130708_sorted.bam
+```
+* ``` -o BGR_130305_sorted.bam``` --> Output of the sorted .bam file
+
+## Binning reads
+With the results from read mapping, we bin our contigs into individual genomes (MAGs) and start to figure out which microbes are present in the samples.
+
+### Generating contigs database
+The ```fasta``` formatting is limited and cannot store more complex types of information. The ```fasta``` file becomes a database that can store many types of informations that are of interest to us, such as the taxonomy of the genomes in the bins.
+```
+anvi-gen-contigs-database -f anvi_contigs/contigs.anvio.fa -o anvi_contigs/contigs.db -n biol217
+```
+* ```-f anvi_contigs/contigs.anvio.fa``` --> Input of reformatted fasta file
+* ``` -o anvi_contigs/contigs.db``` --> Output of contigs database file
+* ```-n biol217``` --> Project name
+
+### Annotating ORFs
+It is also a good idea to search for potential biological functions that the predicted ORFs may have. This information can come in handy when you want to study the metabolism of the species in the experiment. We will perform a HMM search against several collections of genes to see if the ORFs predicted are similar to any known genes.
+```
+anvi-run-hmms -c anvi_contigs/contigs.db --num-threads 4 
+```
+* ```-c anvi_contigs/contigs.db``` --> Input of the contig database
+* ```--num-threads 4 ``` --> number of CPU threads used
+
+### Visualizing the contigs database
+An ```anvi'o``` profile is like an upgraded ```anvi'o``` database that can also store read mapping results and detailed per-nucleotide information.
+```
+anvi-profile -i anvi_contigs/BGR_130305_sorted.bam -c anvi_contigs/contigs.db --output-dir anvi_contigs/BGR_130305_profile
+anvi-profile -i anvi_contigs/BGR_130527_sorted.bam -c anvi_contigs/contigs.db --output-dir anvi_contigs/BGR_130527_profile
+anvi-profile -i anvi_contigs/BGR_130708_sorted.bam -c anvi_contigs/contigs.db --output-dir anvi_contigs/BGR_130708_profile
+```
+* ```-i anvi_contigs/BGR_130305_sorted.bam``` --> Input of sorted and indexed .bam file+
+* ``` -c anvi_contigs/contigs.db``` --> Input of contigs database
+* ``` --output-dir anvi_contigs/BGR_130708_profile``` --> Output directory
+
+### Merging ```anvi'o``` profiles from all samples
+To analyze and compare all samples together, we merge the profiles coming from the different samples into one profile.
+```
+anvi-merge anvi_contigs/BGR_130305_profile anvi_contigs/BGR_130527_profile anvi_contigs/BGR_130708_profile -o anvi_contigs/BGR_merge -c anvi_contigs/contigs.db --enforce-hierarchical-clustering
+```
+* ```anvi_contigs/BGR_130305_profile anvi_contigs/BGR_130527_profile anvi_contigs/BGR_130708_profile -o anvi_contigs/BGR_merge``` --> Profiles that will be merged
+* ```-o anvi_contigs/BGR_merge``` --> Output directory
+* ```-c anvi_contigs/contigs.db``` --> Contig database file
+* ```
+
