@@ -123,3 +123,17 @@ anvi-merge anvi_contigs/BGR_130305_profile/PROFILE.db anvi_contigs/BGR_130527_pr
 * ```-c anvi_contigs/contigs.db``` --> Contig database file
 * ```--enforce-hierarchical-clustering``` --> Construct a phylogenetic tree that shows the relationships between the contigs
 
+### Binning contigs into genomes
+Two different programms are used.
+#### ```MetaBat2```
+```
+anvi-cluster-contigs -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -C METABAT2 --driver metabat2 --log-file anvi_contigs/BGR_merge/metabat.log --just-do-it 
+anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -o anvi_contigs/BGR_merge/summary_megabat2 -C METABAT2
+```
+* ```-p anvi_contigs/BGR_merge/PROFILE.db``` --> Input merged PROFILE.db
+* ```-c anvi_contigs/contigs.db``` --> Input contig database
+* ```-C METABAT2 ``` --> Name of output collection
+* ```--driver metabat2``` --> Binning programm
+* ```--log-file anvi_contigs/BGR_merge/metabat.log``` --> Output of log file
+* ```--just-do-it ``` --> needed for experimental workflow that is still under development and may produced unexpected errors
+* ```-o anvi_contigs/BGR_merge/summary_megabat2``` --> Output directory of the summary
