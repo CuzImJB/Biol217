@@ -111,7 +111,9 @@ anvi-profile -i anvi_contigs/BGR_130708_sorted.bam -c anvi_contigs/contigs.db --
 * ``` -c anvi_contigs/contigs.db``` --> Input of contigs database
 * ``` --output-dir anvi_contigs/BGR_130708_profile``` --> Output directory
 
-[Contig_Database](Images/Contig_database_Day3.png)
+[Contig_Database_Archaea](CuzImJB/Biol217/Images/Contig_database_archaea_Day3.png)
+<br>[Contig_Database_Bacteria](CuzImJB/Biol217/Images/Contig_database_bacteria_Day3.png)
+<br>[Contig_Database_Protista](CuzImJB/Biol217/Images/Contig_database_protista_Day3.png)
 
 ### Merging ```anvi'o``` profiles from all samples
 To analyze and compare all samples together, we merge the profiles coming from the different samples into one profile.
@@ -156,4 +158,6 @@ Questions:
     * 3 archaeal bins
 * How many ARCHAEA bins did you get from ```MaxBin2```?
     * 1 archaeal bin
-    
+
+## Evaluating MAGs Quality
+
