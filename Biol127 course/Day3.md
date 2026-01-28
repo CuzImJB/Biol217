@@ -10,3 +10,15 @@ metaquast /work_beegfs/sunam227/metagenomics/assembly/final.contigs.fa -o metaqu
 * ``` -o metaquast ``` --> Output directory
 * ``` -m 1000 ``` --> Minimum contig lenght
 * ```-t 6 ``` --> Maximum number of CPU threads used
+
+Questions:
+* What is your N50 value? Why is this value relevant?
+    * N50=3014. A higher N50 value indicates fewer, longer contigs, suggesting a more complete and less fragmented assembly.
+* How many contigs are assembled?
+    * 55835
+* What is the total lenght of the contigs?
+    * 142641998 bp
+
+## Mapping Sequencing Reads to Assembled Contigs
+
+
