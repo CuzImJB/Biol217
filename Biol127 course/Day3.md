@@ -167,7 +167,7 @@ anvi-estimate-genome-completeness -c anvi_contigs/contigs.db -p anvi_contigs/BGR
 ```
 To only check what bins have been generated:
 ```
-anvi-estimate-genome-completeness --list-collections -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db
+anvi-estimate-genome-completeness --list-collections -c anvi_contigs/contigs.db -p anvi_contigs/BGR_merge/PROFILE.db 
 ```
 
 ### Examining bins manually
