@@ -48,7 +48,9 @@ anvi-refine -c $WORK/metagenomics/anvi_contigs/contigs.db -p refine/PROFILE_refi
 <br> [Bin_34_plot_refined](../Images/Bin_34_plot_refined.png)
 #### Questions
 * How much could you improve the quality of your ARCHAEA?
-    * No idea
+    * MEGABAT__14: 48.68% Completion and 9.21% Redundancy --> 48.68% Completion and 9.21% Redundancy
+    * MEGABAT__32: 98.68% Completion and 2.63% Redundancy --> 98.68% Completion and 2.63% Redundancy
+    * MEGABAT__34: 38.16% Completion and 0.00% Redundancy --> 38.16% Completion and 0.00% Redundancy
 
 ## Visualizing Coverage
 Checking how abundant Archaea MAGs are.
@@ -58,7 +60,7 @@ anvi-interactive -p refine/PROFILE_refined.db -c $WORK/metagenomics/anvi_contigs
 [Visualization_coverage](../Images/Visualization_abundance.png)
 
 #### Questions
-* How abundant (relatively) are the Archaea bins in the 3 samples?
+* How abundant (relatively) are the Archaea bins (bin 34) in the 3 samples?
     * BGR_130305: 8.11
     * BGR_130527: 5.29
     * BGR_130708: 3.52
