@@ -4,9 +4,9 @@
 
 ```quast``` is a Quality Assessment Tool to evaluate genome assembly. It is used to evaluate the results from ```megahit```.
 ```
-metaquast /work_beegfs/sunam227/metagenomics/assembly/final.contigs.fa -o metaquast -m 1000 -t 6
+metaquast assembly/final.contigs.fa -o metaquast -m 1000 -t 6
 ```
-* ``` /work_beegfs/sunam227/metagenomics/assembly/final.contigs.fa ``` --> Used file
+* ``` assembly/final.contigs.fa ``` --> Used file
 * ``` -o metaquast ``` --> Output directory
 * ``` -m 1000 ``` --> Minimum contig lenght
 * ```-t 6 ``` --> Maximum number of CPU threads used
@@ -34,7 +34,7 @@ If you simply use the ```final.contigs.fa``` file for read mapping, you will run
 ### Re-formatting the contigs
 The contig sequence IDs are simplified and short contigs are cut.
 ```
-anvi-script-reformat-fasta /work_beegfs/sunam227/metagenomics/assembly/final.contigs.fa -o anvi_contigs/contigs.anvio.fa --min-len 1000 --simplify-names --report-file names.txt
+anvi-script-reformat-fasta assembly/final.contigs.fa -o anvi_contigs/contigs.anvio.fa --min-len 1000 --simplify-names --report-file names.txt
 ```
 * ```assembly/final.contigs.fa``` --> Used file
 * ```-o anvi_contigs/contigs.anvio.fa``` --> Write output to fasta.file
@@ -160,4 +160,29 @@ Questions:
     * 1 archaeal bin
 
 ## Evaluating MAGs Quality
+### Estimating genome completeness
+Each bin is now a hypothetical genome of one species (more precisely a MAG). The next step is to evaluate how complete and pure each of the bin (MAG) is.
+```
+anvi-estimate-genome-completeness -c anvi_contigs/contigs.db -p anvi_contigs/BGR_merge/PROFILE.db -C METABAT2
+```
+To only check what bins have been generated:
+```
+anvi-estimate-genome-completeness --list-collections -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db
+```
 
+### Examining bins manually
+```Anvi-interactive``` gives the possibility to manually inspect and work on bins. 
+```
+anvi-interactive -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -C METABAT2
+```
+
+Questions:
+* How many ARCHAEA bins do you get that are of high quality?
+    * 1 ARCHAEA bins of high quality (Completion≥90% and Redundancy/Contamination≤5%)
+* How many BACTERIA bins do you get that are of high quality?
+    * 12 BACTERIA bins of high quality (Completion≥90% and Redundancy/Contamination≤5%)
+* Which binning strategy gives you the best quality for ARCHAEA bins?
+    * ```MEGABAT2```: 2 low and 1 high quality ARCHAEA bins
+    * ```MAXBIN2``` : 1 low quality ARCHAEA bin
+    * --> The ```MEGABAT2``` binning strategy gives better quality ARCHAEA bins that ```MAXBIN2```
+    
