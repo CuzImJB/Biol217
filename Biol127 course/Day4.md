@@ -50,4 +50,16 @@ anvi-refine -c $WORK/metagenomics/anvi_contigs/contigs.db -p refine/PROFILE_refi
 * How much could you improve the quality of your ARCHAEA?
     * No idea
 
+## Visualizing Coverage
+Checking how abundant Archaea MAGs are.
+```
+anvi-interactive -p refine/PROFILE_refined.db -c $WORK/metagenomics/anvi_contigs/contigs.db -C METABAT2
+```
+[Visualization_coverage](../Images/Visualization_abundance.png)
+
+#### Questions
+* How abundant (relatively) are the Archaea bins in the 3 samples?
+    * BGR_130305: 8.11
+    * BGR_130527: 5.29
+    * BGR_130708: 3.52
 
