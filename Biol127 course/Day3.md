@@ -153,7 +153,7 @@ anvi-summarize -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -
 * ```--just-do-it ``` --> needed for experimental workflow that is still under development and may produced unexpected errors
 * ```-o anvi_contigs/BGR_merge/summary_maxbin2``` --> Output directory of the summary
 
-Questions:
+#### Questions:
 * How many ARCHAEA bins did you get from ```MetaBat2```?
     * 3 archaeal bins
 * How many ARCHAEA bins did you get from ```MaxBin2```?
@@ -175,9 +175,9 @@ anvi-estimate-genome-completeness --list-collections -p anvi_contigs/BGR_merge/P
 ```
 anvi-interactive -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -C METABAT2
 ```
-[Bins/MAGs](../Images/Anvi_interactive_bins_Day3.png)
+[Bins/MAGs](../Images/Anvi_interactive_bins_Day3.png) 
 
-Questions:
+#### Questions:
 * How many ARCHAEA bins do you get that are of high quality?
     * 1 ARCHAEA bins of high quality (Completion≥90% and Redundancy/Contamination≤5%)
 * How many BACTERIA bins do you get that are of high quality?
