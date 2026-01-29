@@ -175,6 +175,7 @@ anvi-estimate-genome-completeness --list-collections -p anvi_contigs/BGR_merge/P
 ```
 anvi-interactive -p anvi_contigs/BGR_merge/PROFILE.db -c anvi_contigs/contigs.db -C METABAT2
 ```
+[Bins/MAGs](../Images/Anvi_interactive_bins_Day3.png)
 
 Questions:
 * How many ARCHAEA bins do you get that are of high quality?
