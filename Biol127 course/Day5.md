@@ -55,3 +55,4 @@ anvi-dereplicate-genomes -i file.csv --program fastANI --similarity-threshold 0.
         * Merges genomes that are less similar but still related.
         * Example: METABAT12 + METABAT5 → now considered part of the same broader group.
     * --> Lower ANI thresholds merge more genomes into clusters, reducing redundancy but also reducing taxonomic resolution. Your dataset is highly diverse, so even at 80% ANI, most genomes remain separate.
+    * --> Binning looks at kmer-sequences and GC-content, but not at the nucleotide identity; chimera; this results in possible mis-binning and bins the same species onto two different bins. This can be found out through Genome dereplication, by looking at the nucleotide identity.
