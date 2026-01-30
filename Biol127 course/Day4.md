@@ -22,6 +22,7 @@ gunc plot -d refine/METABAT__34/METABAT__34_gunc_out/iamond_output/METABAT__34-c
 * ```-d refine/METABAT__14/METABAT__14_gunc_out/iamond_output/METABAT__14-contigs.diamond.progenomes_2.1.out``` --> Database result file from ```diamond```
 * ``` -g refine/METABAT__14/METABAT__14_gunc_out/gene_calls/gene_counts.json``` --> Gene count file from ```gunc run```
 * ```--out_dir METABAT__14_gunc_out``` --> Output directory
+
 <br>[Bin_14_plot](../Images/Bin_14_plot_chimera.png)
 <br>[Bin_32_plot](../Images/Bin_32_plot_chimera.png)
 <br>[Bin_34_plot](../Images/Bin_34_plot_chimera.png)
