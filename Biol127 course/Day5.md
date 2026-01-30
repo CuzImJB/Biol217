@@ -28,3 +28,30 @@ anvi-summarize -p $WORK/metagenomics/anvi_contigs/BGR_merge/merged_PROFILE.db -c
         * The taxonomy is coherent
         * The markers agree
         * The only uncertainty is species naming, which is normal and expected
+
+## Genome dereplication (BONUS)
+Genome dereplication will be done using ```anvi-dereplicate-genome```
+```
+anvi-dereplicate-genomes -i file.csv --program fastANI --similarity-threshold 0.95 -o ANI95 --force-overwrite --log-file log_ANI -T 10
+anvi-dereplicate-genomes -i file.csv --program fastANI --similarity-threshold 0.90 -o ANI90 --force-overwrite --log-file log_ANI -T 10
+anvi-dereplicate-genomes -i file.csv --program fastANI --similarity-threshold 0.80 -o ANI80 --force-overwrite --log-file log_ANI -T 10
+```
+
+#### Questions
+* How many species do you have in the dataset? 
+    * 95% (default)	45	Every genome is unique → species-level resolution
+    * 90%	45	Still all genomes are singletons; no merging yet → species-level distinction still maintained
+    * 80%	43	Some genomes merged → broader, genus-level similarity
+* Try to dereplicate again at 90% identity then at 80% identity. In you own words, explain the differences between the different % identities.
+    * 95% ANI (default):
+        * Captures species-level diversity.
+        * Each genome is unique → no merging.
+        * Useful when you want to know how many distinct species are in your dataset.
+    * 90% ANI:
+        * Still mostly species-level, but could start grouping very closely related species (some genera).
+        * In the dataset, all genomes remained singletons → species are still distinct.
+    * 80% ANI:
+        * Captures broader taxonomic relationships (possibly genus or family level).
+        * Merges genomes that are less similar but still related.
+        * Example: METABAT12 + METABAT5 → now considered part of the same broader group.
+    * --> Lower ANI thresholds merge more genomes into clusters, reducing redundancy but also reducing taxonomic resolution. Your dataset is highly diverse, so even at 80% ANI, most genomes remain separate.
