@@ -74,3 +74,81 @@ NanoPlot --fastq 2_long_reads_qc/filtlong/241155E_cleaned_filtlong.fastq.gz -o 2
 ```
 unicycler -1 1_short_reads_qc/1_fastqc_raw_clean/241155E_R1_clean.fastq.gz -2 1_short_reads_qc/1_fastqc_raw_clean/241155E_R2_clean.fastq.gz -l 2_long_reads_qc/filtlong/241155E_cleaned_filtlong.fastq.gz -o 3_assembly -t 24
 ``` 
+
+## Check the quality of the assembly
+To check the quality of the assembly, ```Quast```, ```CheckM``` and ```CheckM2``` are used.
+
+### Quast
+<!--
+```micromamba activate .micromamba/envs/04_quast```
+-->
+```
+quast.py 3_assembly/assembly.fasta --circos -L --conserved-genes-finding --rna-finding --glimmer --use-all-alignments --report-all-metrics -o 4_assembly_qc/quast -t 8
+```
+
+### CheckM
+<!--
+```micromamba activate .micromamba/envs/04_checkm```
+-->
+```
+mkdir -p 4_assembly_qc/checkm
+
+checkm lineage_wf 3_assembly 4_assembly_qc/checkm -x fasta --tab_table --file 4_assembly_qc/checkm/checkm_results -r -t 8 
+checkm tree_qa 4_assembly_qc/checkm 
+checkm qa 4_assembly_qc/checkm/lineage.ms 4_assembly_qc/checkm/ -o 1 > 4_assembly_qc/checkm/final_table_01.csv
+checkm qa 4_assembly_qc/checkm/lineage.ms 4_assembly_qc/checkm/ -o 2 > 4_assembly_qc/checkm/final_table_checkm.csv
+```
+
+### CheckM2
+<!--
+```micromamba activate .micromamba/envs/04_checkm2```
+-->
+```
+checkm2 predict --threads 1 --input 3_assembly/assembly.fasta --output-directory 4_assembly_qc/checkm2
+```
+
+### Visualization with Bandage
+[Hybrid_Assembly](../Images/Hybrid_Assembly_day6.png)
+
+### Annotate the genomes with Prokka
+<!--
+```micromamba activate .micromamba/envs/05_prokka```
+-->
+```
+prokka 3_assembly/assembly.fasta --outdir 5_annotated_genome --kingdom Bacteria --addgenes --cpus 32
+```
+
+### Classify the genomes with GTDBTK
+<!--
+```micromamba activate .micromamba/envs/06_gtdbtk```
+-->
+``` 
+gtdbtk classify_wf --cpus 1 --genome_dir 6_gtdb_classification --out_dir 6_gtdb_classification --extension .fna --skip_ani_screen
+```
+
+### MultiQC to combine the reports
+Run MultiQC to combine all the QC reports at once at the end of the pipeline
+<!--
+```micromamba activate .micromamba/envs/01_short_reads_qc```
+-->
+```
+multiqc -d $WORK/genomics -o 7_multiqc
+```
+
+### Questions 
+* How good is the quality of the genome?
+    *
+* Why did we use the hybrid assembler?
+    * We used a hybrid assembler to combine the advantages of short and long reads.
+    * Short reads are highly accurate, but cannot span repetitive regions. Long reads can bridge repeats and structural regions but have a higher error rate.
+* What is the difference between short and long reads?
+    | Feature | Short reads | Long reads |
+    | Read lenght | 100-300 bp | 1kb to >100kb |
+    | Accuracy | Very high| lower | 
+    | Repeats solution | Poor | Excellent |
+    | Cost per base | Low | Higher |
+    | Assembly | Fragmented | More contigous |
+* Did we use Single or Paired end reads? Why? 
+    * We used Paired end reads. They provide information from both end of the DNA fragment and improve assemble accuracy, repeat solutions and scaffolding. They reduce ambiguity compared to single reads.
+* Which classification was assigned to the genome? Is it trustworthy and why?
+    * 
