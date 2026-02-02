@@ -144,12 +144,15 @@ multiqc -d $WORK/genomics -o 7_multiqc
     * We used a hybrid assembler to combine the advantages of short and long reads.
     * Short reads are highly accurate, but cannot span repetitive regions. Long reads can bridge repeats and structural regions but have a higher error rate.
 * What is the difference between short and long reads?
-    | Feature | Short reads | Long reads |
-    | Read lenght | 100-300 bp | 1kb to >100kb |
-    | Accuracy | Very high| lower | 
-    | Repeats solution | Poor | Excellent |
-    | Cost per base | Low | Higher |
-    | Assembly | Fragmented | More contigous |
+
+    | Feature | Short reads | Long reads |  
+    | --- | --- | --- |
+    | Read lenght | 100-300 bp | 1kb to >100kb |    
+    | Accuracy | Very high| lower |         
+    | Repeats solution | Poor | Excellent |     
+    | Cost per base | Low | Higher |   
+    | Assembly | Fragmented | More contigous |     
+
 * Did we use Single or Paired end reads? Why? 
     * We used Paired end reads. They provide information from both end of the DNA fragment and improve assemble accuracy, repeat solutions and scaffolding. They reduce ambiguity compared to single reads.
 * Which classification was assigned to the genome? Is it trustworthy and why?
