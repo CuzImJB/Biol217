@@ -137,7 +137,9 @@ multiqc -d $WORK/genomics -o 7_multiqc
 
 ### Questions 
 * How good is the quality of the genome?
-    *
+    * CheckM: Completeness 99.98% and Contamination 0.29
+    * Quast: N50 is 1 and L50 is 4.331.274 (Genome is almost one contig)
+    * --> High quality
 * Why did we use the hybrid assembler?
     * We used a hybrid assembler to combine the advantages of short and long reads.
     * Short reads are highly accurate, but cannot span repetitive regions. Long reads can bridge repeats and structural regions but have a higher error rate.
@@ -151,4 +153,4 @@ multiqc -d $WORK/genomics -o 7_multiqc
 * Did we use Single or Paired end reads? Why? 
     * We used Paired end reads. They provide information from both end of the DNA fragment and improve assemble accuracy, repeat solutions and scaffolding. They reduce ambiguity compared to single reads.
 * Which classification was assigned to the genome? Is it trustworthy and why?
-    * 
+    * Bacteroides muris. It is trustworthy: High completeness, low contamination; high confidence of the assignment
