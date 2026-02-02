@@ -29,7 +29,7 @@ anvi-summarize -p $WORK/metagenomics/anvi_contigs/BGR_merge/merged_PROFILE.db -c
         * The markers agree
         * The only uncertainty is species naming, which is normal and expected
 
-## Genome dereplication (BONUS)
+## Genome dereplication (BONUS) --> remember for bonus points
 Genome dereplication will be done using ```anvi-dereplicate-genome```
 ```
 anvi-dereplicate-genomes -i file.csv --program fastANI --similarity-threshold 0.95 -o ANI95 --force-overwrite --log-file log_ANI -T 10
