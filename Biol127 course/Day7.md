@@ -41,8 +41,9 @@ done
 ```
 anvi-display-contigs-stats $WORK/pangenomics/V_jascida_genomes/*db
 ```
-[Phylogramm](../Images/Visualization_Vjascida_phylo.png)
-[Phylogramm_circle](../Images/Visualization_Vjascida_circle.png)
+[Bacteria](../Images/Visualization_contigs_bacteria_day7.png)
+[Archaea](../Images/Visualization_contig_archaea_day7.png)
+[Protista](../Images/Visualization_contigs_protista_day7.png)
 
 ## Create external genomes file
 ```
@@ -53,3 +54,11 @@ anvi-script-gen-genomes-file --input-dir $WORK/pangenomics/V_jascida_genomes -o 
 ```
 anvi-estimate-genome-completeness -e external-genomes.txt
 ```
+[Contamination](../Images/Investigate_Contamination.png)
+
+## Visualise contigs for refinement
+```
+anvi-interactive -c V_jascida_52.db -p V_jascida_52/PROFILE.db
+```
+[Visualise Contig Refinement](../Images/Visualise_contig_refinement.png)
+
