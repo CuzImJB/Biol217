@@ -60,5 +60,19 @@ anvi-estimate-genome-completeness -e external-genomes.txt
 ```
 anvi-interactive -c V_jascida_52.db -p V_jascida_52/PROFILE.db
 ```
-[Visualise Contig Refinement](../Images/Visualise_contig_refinement.png)
+[Visualise Contig Refinement](../Images/Visualise_contamination_day7.png)
+
+## Splitting the genome on our good bins
+Seperate the good bins stored in "default" from unwanted bins
+```
+anvi-split -p V_jascida_52/PROFILE.db -c V_jascida_52.db -C default -o V_jascida_52_SPLIT
+sed 's/V_jascida_52.db/V_jascida_52_SPLIT\/Clean\/CONTIGS.db/g' external-genomes.txt > external-genomes-final.txt
+```
+
+## Estimate completeness of split vs. unsplit genome
+```
+anvi-estimate-genome-completeness -e external-genomes-final.txt -o genome_completeness.txt
+```
+[Split_Contamination](../Images/Completeness_split.png)
+
 
