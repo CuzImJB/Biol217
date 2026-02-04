@@ -75,4 +75,37 @@ anvi-estimate-genome-completeness -e external-genomes-final.txt -o genome_comple
 ```
 [Split_Contamination](../Images/Completeness_split.png)
 
+## Compute the pangenome
+### generate a genome storage database
+```
+anvi-gen-genomes-storage -e external-genomes-final.txt -o V_jascida-GENOMES.db
+```
+### calculate the pangenome
+```
+anvi-pan-genome -g V_jascida-GENOMES.db --project-name V_jascida --num-threads 8   
+```
+### calculate the ANI 
+```
+anvi-compute-genome-similarity -e external-genomes-final.txt -o ani -p V_jascida/V_jascida-PAN.db  -T 8                                      
+```
+
+## Display the pangenome
+```
+anvi-display-pan -p V_jascida/V_jascida-PAN.db -g V_jascida-GENOMES.db
+```
+[Pangenome](../Images/Pangenome.png)
+
+### Questions
+* Are genes clustered based on sequence similarity or functional annotation?
+    * Genes are clustered based on sequence similarity --> Functional annotation is assigned after clustering
+* How do you spot a "bad" genome, or "bad" bin in a genome?
+    * Low completeness and high contamination
+* Use the search function to assign all gene clusters into the following bins: Core genome, Accessory genome, Singletons and Single Copy core genes (SCGs). Include a screenshot of your pangenome into the protocol 
+    * [Pangenome](../Images/Pangenome_edit_day7.png)
+* If you add more genomes to the pangenome, what would happen to the number of gene clusters in the Core genome and in SCGS?
+    * Core genome size decreases --> Fewer genes are shared by all genomes
+    * Number of Single Copy core Genes (SCGs) decreases --> higher chance of gene absence or duplication
+    * Accesory genome and singleton counts increases --> new genomes introduce novel genes
+* Based on the ANI, would you say all genomes belong to the same species?
+    * Based on the ANI, all genomes belong to the same species --> ANI is above 0.95 for all genomes.
 
