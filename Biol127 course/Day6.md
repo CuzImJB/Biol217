@@ -154,6 +154,6 @@ multiqc -d $WORK/genomics -o 7_multiqc
     | Assembly | Fragmented | More contigous |     
 
 * Did we use Single or Paired end reads? Why? 
-    * We used Paired end reads. They provide information from both end of the DNA fragment and improve assemble accuracy, repeat solutions and scaffolding. They reduce ambiguity compared to single reads.
+    * We used Paired end reads. They provide information from both ends of the DNA fragment and improve assemble accuracy, repeat solutions and scaffolding. They reduce ambiguity compared to single reads.
 * Which classification was assigned to the genome? Is it trustworthy and why?
     * Bacteroides muris. It is trustworthy: High completeness, low contamination; high confidence of the assignment
