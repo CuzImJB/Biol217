@@ -61,7 +61,7 @@ anvi-interactive -p refine/PROFILE_refined.db -c $WORK/metagenomics/anvi_contigs
 [Visualization_coverage](../Images/Visualization_abundance.png)
 
 #### Questions
-* How abundant (relatively) are the Archaea bins (bin 34) in the 3 samples?
+* How abundant (relatively) are the Archaea bins (bin 32) in the 3 samples?
     * BGR_130305: 8.11
     * BGR_130527: 5.29
     * BGR_130708: 3.52
