@@ -37,7 +37,7 @@ megahit -1 fastp/BGR_130305_mapped_R1.fastq.gz -1 fastp/BGR_130527_mapped_R1.fas
 * ```-1 fastp/BGR_130305_mapped_R1.fastq.gz``` --> Input of all forward reads (multiple)
 * ```-2 fastp/BGR_130305_mapped_R2.fastq.gz``` --> Input of all reverse reads (multiple)
 * ```-o assembly``` --> output directory
-* ```--min-contig-len 1000``` --> minimum lenght of the assembled genomes
+* ```--min-contig-len 1000``` --> minimum lenght of the assembled contigs
 * ```--presets meta-large``` --> Defines minimum and maximum kmer sizes 
 * ```-m 0.85``` -->  max memory in byte to be used in SdBG construction
 * ```-t 12``` --> number of CPU threads
