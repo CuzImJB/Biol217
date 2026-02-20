@@ -101,15 +101,34 @@ iphop predict --fa_file ./MVP_07_Filtered_conservative_Prokaryote_Host_Only_best
     do echo $x; echo  "Low-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Low-quality" ; echo  "Medium-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Medium-quality"; echo  "High-quality"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "High-quality"; echo  "Complete"; cut -f 8 02_CHECK_V/"$x"/MVP_02_"$x"_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv | grep -c "Complete"; 
     done > 7.csv 
 
-    | Sample | Complete | High_Quality | Medium_Quality | Low_Quality |
-    | --- | --- | --- | --- | --- |
+    
+| Sample      | Complete | High_Quality | Medium_Quality | Low_Quality |
+|-------------|----------|--------------|----------------|-------------|
+| BGR_130305  | 0        | 0            | 0              | 625         |
+| BGR_130527  | 0        | 0            | 1              | 693         |
+| BGR_130708  | 0        | 0            | 1              | 860         |
+| BGR_130829  | 0        | 0            | 3              | 964         |
+| BGR_130925  | 0        | 0            | 3              | 856         |
+| BGR_131021  | 1        | 0            | 3              | 1091        |
+| BGR_131118  | 0        | 0            | 3              | 613         |
+| BGR_140106  | 0        | 0            | 0              | 372         |
+| BGR_140121  | 1        | 0            | 0              | 578         |
+| BGR_140221  | 0        | 1            | 1              | 724         |
+| BGR_140320  | 0        | 0            | 1              | 471         |
+| BGR_140423  | 0        | 0            | 0              | 362         |
+| BGR_140605  | 0        | 0            | 2              | 531         |
+| BGR_140717  | 1        | 0            | 3              | 564         |
+| BGR_140821  | 0        | 1            | 1              | 338         |
+| BGR_140919  | 0        | 0            | 1              | 485         |
+| BGR_141022  | 0        | 0            | 0              | 409         |
+| BGR_150108  | 0        | 0            | 1              | 348         |
 
-8. For the Complete viruses from all samples, extract all the lines (from the same output file you just used to answer previous questions) so we can take a closer look. Also add a header so we know what each column contains.
+9. For the Complete viruses from all samples, extract all the lines (from the same output file you just used to answer previous questions) so we can take a closer look. Also add a header so we know what each column contains.
     * Command: `grep "Complete" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv > 8.csv"
     * Answer: 02_CHECK_V/BGR_131021/MVP_02_BGR_131021_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_131021	BGR_131021_NODE_96_length_46113_cov_32.412567	46113	No	53	12	2	Complete	High-quality	100.0	DTR (high-confidence)	1.0		11	0.9741	6	26.0838	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote
     02_CHECK_V/BGR_140121/MVP_02_BGR_140121_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140121	BGR_140121_NODE_54_length_34619_cov_66.823718	34619	No	47	24	0	Complete	High-quality	100.0	DTR (high-confidence)	1.0		11	0.9812	10	41.8446	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote 
     02_CHECK_V/BGR_140717/MVP_02_BGR_140717_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv:BGR_140717	BGR_140717_NODE_168_length_31258_cov_37.020094	31258	No	44	21	0	Complete	High-quality	100.0	DTR (medium-confidence)	1.0		11	0.9818	10	40.2292	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes	dsDNA	Prokaryote
-9. * In what samples were the complete viruses found?
+10. * In what samples were the complete viruses found?
         * Answer: BGR_131021, BGR_140121 and BGR_140717
     * Are they integrated proviruses?
         * Answer: No
