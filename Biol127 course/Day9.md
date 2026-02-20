@@ -102,26 +102,26 @@ iphop predict --fa_file ./MVP_07_Filtered_conservative_Prokaryote_Host_Only_best
     done > 7.csv 
 
     
-| Sample      | Complete | High_Quality | Medium_Quality | Low_Quality |
-|-------------|----------|--------------|----------------|-------------|
-| BGR_130305  | 0        | 0            | 0              | 625         |
-| BGR_130527  | 0        | 0            | 1              | 693         |
-| BGR_130708  | 0        | 0            | 1              | 860         |
-| BGR_130829  | 0        | 0            | 3              | 964         |
-| BGR_130925  | 0        | 0            | 3              | 856         |
-| BGR_131021  | 1        | 0            | 3              | 1091        |
-| BGR_131118  | 0        | 0            | 3              | 613         |
-| BGR_140106  | 0        | 0            | 0              | 372         |
-| BGR_140121  | 1        | 0            | 0              | 578         |
-| BGR_140221  | 0        | 1            | 1              | 724         |
-| BGR_140320  | 0        | 0            | 1              | 471         |
-| BGR_140423  | 0        | 0            | 0              | 362         |
-| BGR_140605  | 0        | 0            | 2              | 531         |
-| BGR_140717  | 1        | 0            | 3              | 564         |
-| BGR_140821  | 0        | 1            | 1              | 338         |
-| BGR_140919  | 0        | 0            | 1              | 485         |
-| BGR_141022  | 0        | 0            | 0              | 409         |
-| BGR_150108  | 0        | 0            | 1              | 348         |
+    | Sample      | Complete | High_Quality | Medium_Quality | Low_Quality |
+    |-------------|----------|--------------|----------------|-------------|
+    | BGR_130305  | 0        | 0            | 0              | 625         |
+    | BGR_130527  | 0        | 0            | 1              | 693         |
+    | BGR_130708  | 0        | 0            | 1              | 860         |
+    | BGR_130829  | 0        | 0            | 3              | 964         |
+    | BGR_130925  | 0        | 0            | 3              | 856         |
+    | BGR_131021  | 1        | 0            | 3              | 1091        |
+    | BGR_131118  | 0        | 0            | 3              | 613         |
+    | BGR_140106  | 0        | 0            | 0              | 372         |
+    | BGR_140121  | 1        | 0            | 0              | 578         |
+    | BGR_140221  | 0        | 1            | 1              | 724         |
+    | BGR_140320  | 0        | 0            | 1              | 471         |
+    | BGR_140423  | 0        | 0            | 0              | 362         |
+    | BGR_140605  | 0        | 0            | 2              | 531         |
+    | BGR_140717  | 1        | 0            | 3              | 564         |
+    | BGR_140821  | 0        | 1            | 1              | 338         |
+    | BGR_140919  | 0        | 0            | 1              | 485         |
+    | BGR_141022  | 0        | 0            | 0              | 409         |
+    | BGR_150108  | 0        | 0            | 1              | 348         |
 
 9. For the Complete viruses from all samples, extract all the lines (from the same output file you just used to answer previous questions) so we can take a closer look. Also add a header so we know what each column contains.
     * Command: `grep "Complete" 02_CHECK_V/BGR_*/MVP_02_BGR_*_Filtered_Relaxed_Merged_Genomad_CheckV_Virus_Proviruses_Quality_Summary.tsv > 8.csv"
@@ -169,10 +169,64 @@ What does this file tell you, conceptionally? Meaning: What do the lines in this
     * Command: for x in "BGR_131021_NODE_96_length_46113_cov_32.412567" "BGR_140121_NODE_54_length_34619_cov_66.823718"  "BGR_140717_NODE_168_length_31258_cov_37.020094" ; 
     do grep "$x" 04_READ_MAPPING/merged_output.tsv | cut -f1,2,11 ;
     done > 04_READ_MAPPING/merged_viruses_RPKM.tsv
-    * Answer: 
-    
-        | Sample | Contig | RPKM |
-        | --- | --- | --- |
+     * Answer: 
+        
+    | Sample      | Contig                                         | RPKM        |
+    |-------------|-----------------------------------------------|------------|
+    | BGR_130305  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.0        |
+    | BGR_130527  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.0        |
+    | BGR_130708  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 10.156808  |
+    | BGR_130829  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 201.0595   |
+    | BGR_130925  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 189.07722  |
+    | BGR_131021  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 154.71898  |
+    | BGR_131118  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 11.161729  |
+    | BGR_140106  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 31.22893   |
+    | BGR_140121  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 17.252619  |
+    | BGR_140221  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.60999864 |
+    | BGR_140320  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.0        |
+    | BGR_140423  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 13.359601  |
+    | BGR_140605  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 9.183679   |
+    | BGR_140717  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.12582351 |
+    | BGR_140821  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.099048875|
+    | BGR_140919  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.0        |
+    | BGR_141022  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 0.0        |
+    | BGR_150108  | BGR_131021_NODE_96_length_46113_cov_32.412567 | 2.3968215  |
+    | BGR_130305  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 530.0747   |
+    | BGR_130527  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 345.76505  |
+    | BGR_130708  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 199.11523  |
+    | BGR_130829  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 75.662476  |
+    | BGR_130925  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 88.48908   |
+    | BGR_131021  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 11.8905115 |
+    | BGR_131118  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 2.9122066  |
+    | BGR_140106  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 0.46738622 |
+    | BGR_140121  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 1329.697   |
+    | BGR_140221  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 210.0382   |
+    | BGR_140320  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 472.9365   |
+    | BGR_140423  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 16.567926  |
+    | BGR_140605  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 3.1911626  |
+    | BGR_140717  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 72.168     |
+    | BGR_140821  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 100.86392  |
+    | BGR_140919  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 152.32184  |
+    | BGR_141022  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 200.0772   |
+    | BGR_150108  | BGR_140121_NODE_54_length_34619_cov_66.823718 | 267.48816  |
+    | BGR_130305  | BGR_140717_NODE_168_length_31258_cov_37.020094| 197.46283  |
+    | BGR_130527  | BGR_140717_NODE_168_length_31258_cov_37.020094| 161.75777  |
+    | BGR_130708  | BGR_140717_NODE_168_length_31258_cov_37.020094| 113.52365  |
+    | BGR_130829  | BGR_140717_NODE_168_length_31258_cov_37.020094| 43.803528  |
+    | BGR_130925  | BGR_140717_NODE_168_length_31258_cov_37.020094| 46.017822  |
+    | BGR_131021  | BGR_140717_NODE_168_length_31258_cov_37.020094| 6.9410787  |
+    | BGR_131118  | BGR_140717_NODE_168_length_31258_cov_37.020094| 3.3950949  |
+    | BGR_140106  | BGR_140717_NODE_168_length_31258_cov_37.020094| 3.1058502  |
+    | BGR_140121  | BGR_140717_NODE_168_length_31258_cov_37.020094| 292.06485  |
+    | BGR_140221  | BGR_140717_NODE_168_length_31258_cov_37.020094| 46.794453  |
+    | BGR_140320  | BGR_140717_NODE_168_length_31258_cov_37.020094| 153.9964   |
+    | BGR_140423  | BGR_140717_NODE_168_length_31258_cov_37.020094| 3.3980339  |
+    | BGR_140605  | BGR_140717_NODE_168_length_31258_cov_37.020094| 2.0616696  |
+    | BGR_140717  | BGR_140717_NODE_168_length_31258_cov_37.020094| 305.86407  |
+    | BGR_140821  | BGR_140717_NODE_168_length_31258_cov_37.020094| 85.26142   |
+    | BGR_140919  | BGR_140717_NODE_168_length_31258_cov_37.020094| 130.4371   |
+    | BGR_141022  | BGR_140717_NODE_168_length_31258_cov_37.020094| 154.94527  |
+    | BGR_150108  | BGR_140717_NODE_168_length_31258_cov_37.020094| 194.18689  |
 ### Annotations
 18. Find the annotation output from module 06. Based on the file naming alone, what is each of the files for and what is different between files with the same extension (file ending, like .tsv)?
     * Answer: The two tsv files contain gene annotation information for only the 5000+ viral cluster representatives. (GENOMAD, PHROGS and PFAM are the databases that were used for annotation.)
